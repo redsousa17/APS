@@ -16,16 +16,16 @@ cap = cv2.VideoCapture("walking.mp4")
 
 #--- CARREGA OS PESOS DA REDE NEURAL 
 #--- Consome MAIS recursos do Sistema (Mais Eficiente)
-net = cv2.dnn.readNet("yolov4.weights", "yolov4.cfg") 
+#net = cv2.dnn.readNet("yolov4.weights", "yolov4.cfg") 
 #--- Consome MENOS recursos do Sistema (Menos Eficiente)
-#net = cv2.dnn.readNet("yolov4-tiny.weights", "yolov4-tiny.cfg") 
+net = cv2.dnn.readNet("yolov4-tiny.weights", "yolov4-tiny.cfg") 
 
 #--- SETANDO OS PARAMETROS DA REDE NEURAL
 model = cv2.dnn_DetectionModel(net)
 #--- Consome MAIS recursos do Sistema (Mais Eficiente)
-model.setInputParams(size=(608, 608), scale=1/255) 
+#model.setInputParams(size=(608, 608), scale=1/255) 
 #--- Consome MENOS recursos do Sistema (Menos Eficiente)
-#model.setInputParams(size=(416, 416), scale=1/255) 
+model.setInputParams(size=(416, 416), scale=1/255) 
 
 #--- LAÇO QUE LE FRAME A FRAME DO VIDEO
 while True:
